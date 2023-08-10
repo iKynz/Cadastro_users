@@ -1,0 +1,18 @@
+/* NAVEGAÇÃO */
+header {
+    background: linear-gradient(to right, #fc4a1a, #f7b733);
+
+    & a img {
+        width: 70px;
+    }
+
+    & .navbar-nav a {
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+/* HOME */
+.container form {
+    display: inline-block;
+}

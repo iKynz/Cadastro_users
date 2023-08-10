@@ -1,21 +1,41 @@
 <?php
-    include_once("config/url.php");
+    include_once("templates/header.php");
+    $users = fetchAll();
 ?>
+ 
+    <div class="container mt-5">
+        <?php if(count($users) > 0): ?>
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($users as $user): ?>
+                        <tr>
+                            <th scope="row"><?= $user->id ?></th>                         
+                            <td><?= $user->nome ?></td>
+                            <td><?= $user->phone ?></td>
+                            <td><?= $user->email ?></td>
+                            <td>
+                                <a href=""><i class="fa-solid fa-eye"></i></a>
+                                <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                                <!-- <form action="<?= $BASE_URL ?>index.php" method="POST">
+                                    <button type="submit"><i class="fa-solid fa-trash"></i></button>
+                                </form> -->
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+                </table>
+        <?php endif; ?>
+    </div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="<?= $BASE_URL ?>/css/style.css">
-    <title>Contatos</title>
-</head>
-<body>
-    <h1>CONTATOS</h1>
-</body>
-</html>
+<?php
+    include_once("templates/footer.php");
+?>
