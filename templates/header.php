@@ -1,6 +1,11 @@
 <?php
     require_once("config/url.php");
     require_once("config/connection.php");
+
+    if(isset($_SESSION["msg"])) {
+        $printMsg = $_SESSION["msg"];
+        $_SESSION["msg"] = "";
+    }
 ?>
 
 <!DOCTYPE html>

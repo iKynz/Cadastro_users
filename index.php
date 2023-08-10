@@ -2,7 +2,13 @@
     include_once("templates/header.php");
     $users = fetchAll();
 ?>
- 
+    
+    <div>
+        <?php if(isset($printMsg) && $printMsg != ""): ?>
+            <p class="msg"><?= $printMsg ?></p>
+        <?php endif; ?>
+    </div>
+
     <div class="container mt-5">
         <?php if(count($users) > 0): ?>
             <table class="table table-striped">
@@ -23,8 +29,8 @@
                             <td><?= $user->phone ?></td>
                             <td><?= $user->email ?></td>
                             <td>
-                                <a href=""><i class="fa-solid fa-eye"></i></a>
-                                <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="<?= $BASE_URL ?>show.php?id=<?= $user->id ?>"><i class="fa-solid fa-eye"></i></a>
+                                <a href="<?= $BASE_URL ?>edit.php?id=<?= $user->id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <!-- <form action="<?= $BASE_URL ?>index.php" method="POST">
                                     <button type="submit"><i class="fa-solid fa-trash"></i></button>
                                 </form> -->

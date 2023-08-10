@@ -12,7 +12,26 @@ header {
     }
 }
 
+.msg {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
 /* HOME */
 .container form {
     display: inline-block;
+}
+
+/* CREATE */
+
+form {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 5em;
 }
