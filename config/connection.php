@@ -47,7 +47,7 @@
             try{
 
                 $create->execute();
-                $_SESSION["msg"] = "Contato criado com sucesso! :)";
+                $_SESSION["msg"] = "Contato criado com sucesso!";
 
             } catch(PDOException $e) {
 
@@ -82,7 +82,51 @@
             try{
 
                 $create->execute();
-                $_SESSION["msg"] = "Contato editado com sucesso! :)";
+                $_SESSION["msg"] = "Contato editado com sucesso!";
+
+            } catch(PDOException $e) {
+
+                $error = $e->getMessage();
+                echo "Error: $error";
+                
+            }        
+        }
+        header("location:" . $BASE_URL . "../index.php");
+    } else {
+        $id;
+
+        if(!empty($_GET)) {
+            $id = $_GET["id"];
+        }
+
+        // RETORNA O DADO DE UM CONTATO
+        if(!empty($id)) {
+            $pdo = connection();
+            $sql = "SELECT * FROM contatos WHERE id = :id";
+
+            $returnUser = $pdo->prepare($sql);
+            $returnUser->bindParam(":id", $id);
+            $returnUser->execute();
+            $return = $returnUser->fetch();
+        }     
+    }
+
+    // DELETAR CONTATO
+    if(!empty($_POST)) {
+        if($data["type"] === "delete") {
+
+            $id = $data["id"];
+        
+            $pdo = connection();
+            $sql = "DELETE FROM contatos WHERE id = :id";
+            $create = $pdo->prepare($sql);
+
+            $create->bindParam(":id", $id);
+           
+            try{
+
+                $create->execute();
+                $_SESSION["msg"] = "Contato deletado com sucesso.";
 
             } catch(PDOException $e) {
 

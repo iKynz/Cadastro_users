@@ -21,4 +21,9 @@
         <label for="floatingPassword">Observação</label>
     </div>
     <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
+    <?php include_once("./templates/back.php"); ?>
 </form>
+
+<?php
+    include_once("./templates/footer.php");
+?>

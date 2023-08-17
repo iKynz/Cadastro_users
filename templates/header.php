@@ -1,11 +1,12 @@
 <?php
-    require_once("config/url.php");
-    require_once("config/connection.php");
+    require_once("./config/url.php");
+    require_once("./config/connection.php");
 
     if(isset($_SESSION["msg"])) {
         $printMsg = $_SESSION["msg"];
         $_SESSION["msg"] = "";
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -25,12 +26,12 @@
    <header>
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="<?= $BASE_URL ?>index.php">
-                <img src="<?= $BASE_URL ?>/img/logo.png" alt="">        
+                <img src="<?= $BASE_URL ?>./img/logo.png" alt="">        
             </a>
             <div>
                 <div class="navbar-nav">
                     <a href="<?= $BASE_URL ?>index.php" class="nav-link">Contatos</a>
-                    <a href="<?= $BASE_URL ?>create.php" class="nav-link">Adicionar Contato</a>
+                    <a href="<?= $BASE_URL ?>/create.php" class="nav-link">Adicionar Contato</a>
                 </div>
             </div>
         </nav>
